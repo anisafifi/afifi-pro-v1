@@ -12,37 +12,41 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { familyTree } from "@/lib/familyTree";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen justify-center items-center">
-      <Card className="w-auto max-w-[340px] p-10">
+      {familyTree.map((member, index) => (
+      <Card key={index} className="w-auto max-w-[340px] p-10 m-4">
         <CardHeader className="flex justify-center items-center">
 
           <Avatar
           className=""
           >
             <AvatarImage
-              src="https://marketing.afifi.pro/asset/1:avater"
-              alt="Anis Afifi"
+              src={member.avater}
+              alt={member.name}
             />
-            <AvatarFallback>Anis Afifi</AvatarFallback>
+            <AvatarFallback>{member.name}</AvatarFallback>
           </Avatar>
 
           <CardTitle>
-            Anis Afifi
+          {member.name}
 
           </CardTitle>
           <div>
             <span className="bg-blue-100 text-blue-500 rounded p-1 px-1 py-0.5">
-            Male
+            {member.gender}
             </span>
+          </div>
+          <div>
+            {member.dob} {member.death ? `- ${member.death}` : ''}
           </div>
           <CardDescription
           className="text-justify"
           >
-          
-          Entrepreneur and businessman with a big dream to make the world a better place for humankind.
+          {member.bio}
           </CardDescription>
       
         </CardHeader>
@@ -62,6 +66,7 @@ export default function Home() {
           
         </CardFooter>
       </Card>
+      ))}
     </main>
   );
 }
