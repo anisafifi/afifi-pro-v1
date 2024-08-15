@@ -16,7 +16,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex min-h-screen justify-center items-center">
-      <Card className="w-auto max-w-[340px] p-4">
+      <Card className="w-auto max-w-[340px] p-10">
         <CardHeader className="flex justify-center items-center">
 
           <Avatar
@@ -33,15 +33,21 @@ export default function Home() {
             Anis Afifi
 
           </CardTitle>
-
+          <div>
+            <span className="bg-blue-100 text-blue-500 rounded p-1 px-1 py-0.5">
+            Male
+            </span>
+          </div>
           <CardDescription
           className="text-justify"
           >
+          
           Entrepreneur and businessman with a big dream to make the world a better place for humankind.
           </CardDescription>
       
         </CardHeader>
-        <hr className="my-4" />
+
+        <hr className="my-6" />
         <CardContent>
         <Link
           href="https://anisafifi.com"

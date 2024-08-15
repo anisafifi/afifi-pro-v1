@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Afifi - The family tree of ",
+  title: "Afifi - The family tree of a decent family",
   description:
     "Afifi - The family tree of this ancient and noble lineage traces its roots through generations of distinguished figures, each contributing to the rich history and cultural heritage of their ancestry.",
 };
