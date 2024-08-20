@@ -12,7 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { familyTree } from "@/lib/familyTree";
+import { familyTree } from "@/data/familyTree";
+import { FaFacebook } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -25,23 +26,22 @@ export default function Home() {
           className=""
           >
             <AvatarImage
-              src={member.avater}
-              alt={member.name}
+            src={member.avatar ? `${member.avatar}` : (member.gender === 'Male' ? 'memberImg/malePlaceholder.jpg' : 'memberImg/femalePlaceholder.jpg')}
+            alt={member.name}
             />
             <AvatarFallback>{member.name}</AvatarFallback>
           </Avatar>
 
           <CardTitle>
           {member.name}
-
           </CardTitle>
           <div>
             <span className="bg-blue-100 text-blue-500 rounded p-1 px-1 py-0.5">
             {member.gender}
             </span>
           </div>
-          <div>
-            {member.dob} {member.death ? `- ${member.death}` : ''}
+          <div className="italic text-emerald-500">
+            {member.dob} {member.death ? `- ${member.death}` : '- Present'}
           </div>
           <CardDescription
           className="text-justify"
@@ -53,6 +53,9 @@ export default function Home() {
 
         <hr className="my-6" />
         <CardContent>
+        <FaFacebook className="w-6 h-6" />
+
+
         <Link
           href="https://anisafifi.com"
           >  
